@@ -25,11 +25,9 @@
       <file leaf-file-name="napisz_hello_world.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/napisz_hello_world.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.489426">
-              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
-              <folding>
-                <element signature="e#6#85#0#PHP" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.51057404">
+              <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -154,11 +152,9 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/napisz_hello_world.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.489426">
-          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
-          <folding>
-            <element signature="e#6#85#0#PHP" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.51057404">
+          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
