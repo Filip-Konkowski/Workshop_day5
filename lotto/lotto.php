@@ -1,16 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: filip
- * Date: 25.09.15
- * Time: 10:47
- */
-$liczbyLosowane = [];
-if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
-}
-
-?>
 
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -19,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     <title>Lotto</title>
 </head>
 <body>
-    <form action="lotto.php" method="POST">
+    <form action="lotto.php?start=1&end=10" method="POST">
         <fieldset>
             <legend>Losowanie Lotto</legend>
             <p>
@@ -31,7 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
                         for ($liczba =1; $liczba <= 49; $liczba++){
                             echo ("<input type=checkbox value=$liczba name=checkbox_$liczba >" . $liczba . "<br>");
                         }
-
                     ?>
                 </label>
             </p>
@@ -42,3 +29,46 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
 </body>
 </html>
+
+<?php
+
+
+function generowanie($start,$end){
+    $start = (int)($start);
+    $end = (int)($end);
+    $liczbyLosowane = [];
+    $wylosowane = [];
+    for ($i =$start; $i <= $end; $i++){
+        $liczbyLosowane[] = $i;
+    }
+    shuffle($liczbyLosowane);
+
+    for ($i =0; $i <= 6; $i++){
+        $wylosowane[] = $liczbyLosowane[$i];
+    }
+
+    return $wylosowane;
+}
+
+
+
+$wylosowaneLiczby = generowanie(($_GET["start"]),($_GET["end"]));
+if ($_SERVER["REQUEST_METHOD"] === "POST"){
+    if ((count($_POST) == 6)) {    // ma sprawdzać czy jest 6 checkbox'ów zaznaczonych
+        $wynikLosowania = array_diff($wylosowaneLiczby, $_POST);
+        $stringWylosowaneLiczby = implode(", ", $wylosowaneLiczby);
+        $stringWybrane = implode(", ", $_POST);
+        $stringWynikLosowania = implode(", ", $wynikLosowania);
+        if ((count($wynikLosowania)) == 0){
+            echo "Wynik losowania to " .$wylosowaneLiczby . "nie udało Ci się żadnej zgadnąć";
+        }
+        else {
+            echo "Wybrałeś liczby" .$stringWybrane . "<br> Wylosowane liczby to: " .$stringWylosowaneLiczby . "<br> Nie udało ci się zgadnąć liczby " . $stringWynikLosowania;
+        }
+    }
+    else {
+        echo "<h2>Gościu zaznaczyłeś niewłaściwą ilość liczb</h2>";
+    }
+}
+
+?>
