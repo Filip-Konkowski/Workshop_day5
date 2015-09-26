@@ -6,14 +6,14 @@
  * Time: 16:09
  */
 $czasAktualny = time();
-
+$roznicaCzasu = 0;
 if (!isset($_COOKIE["czas"])){
-    setcookie("czas", $czasAktualny, time()+10);
-    echo "nie ma ciasteczka";
+    setcookie("czas", $czasAktualny, time()+100);
+
 }
 else {
-    $roznicaCzasu =  $_COOKIE["czas"] - $czasAktualny;
-    echo $_COOKIE["czas"] . "lala";
+    $roznicaCzasu =  $czasAktualny - $_COOKIE["czas"];
+
 }
 
 ?>
@@ -26,6 +26,6 @@ else {
 </head>
 <body>
 <h1> WITAJ</h1>
-<p> <?php echo($_COOKIE["czas"] ? "ostatnio byłeś tu o ".$roznicaCzasu."sekund temu": "jeszcze tu nie byłeś" )?></p>
+<p> <?php echo($_COOKIE["czas"] ? "ostatnio byłeś tu o ".$roznicaCzasu." sekundy temu": "jeszcze tu nie byłeś" )?></p>
 </body>
 </html>
