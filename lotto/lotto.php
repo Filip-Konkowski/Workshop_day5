@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         $stringWybrane = implode(", ", $_POST);
         $stringWynikLosowania = implode(", ", $wynikLosowania);
         if ((count($wynikLosowania)) == 0){
-            echo "Wynik losowania to " .$wylosowaneLiczby . "nie udało Ci się żadnej zgadnąć";
+            echo "Wynik losowania to " . $wylosowaneLiczby . "nie udało Ci się żadnej zgadnąć";
         }
         else {
             echo "Wybrałeś liczby" .$stringWybrane . "<br> Wylosowane liczby to: " .$stringWylosowaneLiczby . "<br> Nie udało ci się zgadnąć liczby " . $stringWynikLosowania;
